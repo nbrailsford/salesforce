@@ -6,7 +6,6 @@ function downsize(num){
     return num*.05;
 }
 let smallHeight = heightArray.map(downsize)
-console.log(smallHeight)
 
 //Crate an array of element ids
 let graphArray = [];
@@ -15,12 +14,16 @@ for (let i = 1; i < 21; i++){
 }
 
 //add graph height to each element
+let i = 0;
+let timer = setInterval(addHeight, 200)
 function addHeight(){
-
-    for(let i = 0; i < 20; i++){
         document.getElementById(graphArray[i]).style.height = smallHeight[i].toString() + 'px'
+        i++
+    if(i>19){
+        clearInterval(timer)
     }
 }
+
 
 
 
